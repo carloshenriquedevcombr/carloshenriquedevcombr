@@ -1,17 +1,3 @@
-<div align="center">
-
-```
-╔════════════════════════════════════════════════════════════════╗
-║                    🔴 CARLOS HENRIQUE 🔴                       ║
-║                                                                ║
-║                 ⚡ Backend & Cyber Defense ⚡                    ║
-║                                                                ║
-║       💻 "A segurança não é um produto, é um processo.         ║
-║          E todo processo começa com lógica sólida." 💻         ║
-║                                                                ║
-╚════════════════════════════════════════════════════════════════╝
-```
-
 </div>
 
 ---
@@ -145,21 +131,18 @@ Sistema de gestão com suporte a agendamento, regras de disponibilidade e persis
 
 ### 🔐 Disponível para colaborações em Backend, Cibersegurança e Sistemas de Alto Desempenho
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-carloshenrique/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)]([https://www.linkedin.com/in/-carloshenrique/](https://www.linkedin.com/in/-carloshenrique/))
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contato@carloshenriquedev.com.br)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5519999496636)
 [![Site](https://img.shields.io/badge/Portfólio-ff0147?style=for-the-badge&logo=microsoft-internet-explorer&logoColor=white)](https://carloshenriquedev.com.br/)
 
 ---
 
-<h3>
-  <span style="color: #ff0147;">
-  
-  ```
-  "O futuro está sendo construído em código. 
-   Eu garanto que ele seja seguro e rápido."
-  ```
-  
+<p align="center">
+  <span style="color: #ff0147; font-family: 'Courier New', Courier, monospace; font-size: 1.1em;">
+    "O futuro está sendo construído em código. <br>
+     Eu garanto que ele seja seguro e rápido."
   </span>
+</p>
 
 </div>
