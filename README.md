@@ -39,7 +39,7 @@ Me especializado em arquiteturas **Backend**, lógica de sistemas e **defesa cib
 <tr>
 <td width="50%" align="center">
 
-### 🗡️ CALCULADORA_VALOR_HORA
+### 🗡️ CALCULADORA VALOR HORA
 
 Algoritmo de cálculo de custos com suporte a múltiplas variáveis (salário, custos operacionais, margem de lucro).
 
@@ -48,7 +48,7 @@ Algoritmo de cálculo de custos com suporte a múltiplas variáveis (salário, c
 </td>
 <td width="50%" align="center">
 
-### 🗡️ CLÍNICA_ODONTOLÓGICA
+### 🗡️ CLÍNICA ODONTOLÓGICA
 
 Sistema de gestão com suporte a agendamento, regras de disponibilidade e persistência de registros.
 
@@ -113,25 +113,25 @@ Sistema de gestão com suporte a agendamento, regras de disponibilidade e persis
 ---
 
 <h2 align="center">
-  <span style="color: #ff0147;">▶ ESTATÍSTICAS_CRYPT</span>
+  <span style="color: #ff0147;">▶ ESTATÍSTICAS_CRYPT</span>
 </h2>
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=carloenrique&show_icons=true&theme=radical&hide_border=true&count_private=true&bg_color=1D1E20&title_color=ff0147&icon_color=E4454A&text_color=D0D0D0" alt="Estatísticas do GitHub" width="48%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloenrique&layout=compact&langs_count=8&theme=radical&hide_border=true&bg_color=1D1E20&title_color=ff0147&icon_color=E4454A&text_color=D0D0D0" alt="Linguagens" width="48%" />
+<img src="https://github-readme-stats.vercel.app/api?username=carloshenrique&show_icons=true&theme=radical&hide_border=true&count_private=true&bg_color=1D1E20&title_color=ff0147&icon_color=E4454A&text_color=D0D0D0" alt="Estatísticas do GitHub" width="48%" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshenrique&layout=compact&langs_count=8&theme=radical&hide_border=true&bg_color=1D1E20&title_color=ff0147&icon_color=E4454A&text_color=D0D0D0" alt="Linguagens" width="48%" />
 
 </div>
 
 ---
 
 <h2 align="center">
-  <span style="color: #ff0147;">▶ GRÁFICO_DE_ATIVIDADE</span>
+  <span style="color: #ff0147;">▶ GRÁFICO_DE_ATIVIDADE</span>
 </h2>
 
 <div align="center">
 
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=carloenrique&theme=dark&hide_border=true&bg_color=1D1E20&color=D0D0D0&line=ff0147&point=ff0147)
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=carloshenrique&theme=dark&hide_border=true&bg_color=1D1E20&color=D0D0D0&line=ff0147&point=ff0147)
 
 </div>
 
