@@ -46,11 +46,11 @@ Para chancelar essa evolução, meu plano de estudos atual está focado em conqu
 
 ### 📊 Produtividade e Código
 *(Métricas atualizadas em tempo real)*
-
+<!--
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=carloshenriquedevcombr&show_icons=true&theme=nord&hide_border=true" width="48%" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshenriquedevcombr&layout=compact&theme=nord&hide_border=true" width="48%" />
-</div>
+</div> -->
 
 <br>
 
