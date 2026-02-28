@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/render?type=waving&color=4C566A&height=120&section=header&text=Carlos%20Henrique&fontSize=40&fontColor=ECEFF4&animation=fadeIn" width="100%"/>
+  <img src="https://raw.githubusercontent.com/carloshenriquedevcombr/carloshenriquedevcombr/refs/heads/main/imagens/Screenshot%20from%202026-02-28%2015-28-47.png" width="100%"/>
 </div>
 
 <div align="center">
