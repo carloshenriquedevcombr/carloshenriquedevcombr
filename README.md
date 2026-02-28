@@ -4,7 +4,8 @@
 
 <div align="center">
   <h3>Suporte de T.I. & Estudante de Ciência da Computação</h3>
-  <p>Entusiasta em Backend, Banco de Dados, Big O Notation e Defesa Cibernética</p>
+  <p>Backend, Banco de Dados, Big O Notation e Defesa Cibernética</p>
+  <p>Entusiasta em Análise de Dados e Power BI</p>
 </div>
 
 ---
@@ -20,7 +21,7 @@ Nos estudos, meu foco é dominar os bastidores das aplicações com alto rigor t
 
 ### 🎯 Rotas e Objetivos
 
-A meta de médio prazo é atuar no desenvolvimento Backend (com foco primário em **Java**) para ambientes de missão crítica, como bancos e fintechs, migrando futuramente para operações internas de Cibersegurança corporativa.
+A meta de médio prazo é atuar no desenvolvimento Backend (com foco primário em **Python Java**) para ambientes de missão crítica, como bancos e fintechs, migrando futuramente para operações internas de Cibersegurança corporativa.
 
 Para chancelar essa evolução, meu plano de estudos atual está focado em conquistar minhas primeiras certificações oficiais em redes e banco de dados (**Cisco e Oracle**) até o final deste ano.
 
