@@ -1,148 +1,74 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/render?type=waving&color=4C566A&height=120&section=header&text=Carlos%20Henrique&fontSize=40&fontColor=ECEFF4&animation=fadeIn" width="100%"/>
+</div>
+
+<div align="center">
+  <h3>Suporte de T.I. & Estudante de Ciência da Computação</h3>
+  <p>Entusiasta em Backend, Banco de Dados, Big O Notation e Defesa Cibernética</p>
 </div>
 
 ---
 
-<h2 align="center">
-  <span style="color: #ff0147;">▶ INICIALIZANDO_PERFIL</span>
-</h2>
+### 👨‍💻 Sobre Mim
+
+Atualmente no 3º semestre de Ciência da Computação e atuando como **Suporte Técnico de T.I.**. Minha rotina envolve a resolução de problemas reais de infraestrutura e usuários, o que me desenvolveu uma visão investigativa e sistêmica essencial para diagnosticar falhas na raiz.
+
+Nos estudos, meu foco é dominar os bastidores das aplicações com alto rigor técnico:
+- **Backend & Performance:** Fascinado por análise de algoritmos e **Big O Notation**. Gosto de entender profundamente como o código se comporta em escala, otimizando tempo de execução e uso de memória.
+- **Banco de Dados:** Construindo uma fundação sólida em modelagem, consultas complexas e persistência de dados.
+- **Cibersegurança:** Estudando arquiteturas seguras por design (Blue Team) para garantir que a performance caminhe lado a lado com a proteção contra vulnerabilidades.
+
+### 🎯 Rotas e Objetivos
+
+A meta de médio prazo é atuar no desenvolvimento Backend (com foco primário em **Java**) para ambientes de missão crítica, como bancos e fintechs, migrando futuramente para operações internas de Cibersegurança corporativa.
+
+Para chancelar essa evolução, meu plano de estudos atual está focado em conquistar minhas primeiras certificações oficiais em redes e banco de dados (**Cisco e Oracle**) até o final deste ano.
+
+---
+
+### 🛠️ Minha Stack de Estudos e Ferramentas
 
 <div align="center">
-
-Engenheiro de Software em formação pela **Estácio** (Ciência da Computação).  
-Me especializado em arquiteturas **Backend**, lógica de sistemas e **defesa cibernética**.
-
-### 🔥 **Não construo interfaces bonitas. Construo sistemas que funcionam.** 🔥
-
+  <br>
+  <strong>Linguagens e Lógica</strong><br>
+  <img src="https://skillicons.dev/icons?i=java,py,cs,c" alt="Linguagens"/>
+  <br><br>
+  <strong>Banco de Dados</strong><br>
+  <img src="https://skillicons.dev/icons?i=postgres,mysql,sqlite" alt="Bancos de Dados"/>
+  <br><br>
+  <strong>Infraestrutura e Sistemas</strong><br>
+  <img src="https://skillicons.dev/icons?i=linux,ubuntu,docker,git,github,bash" alt="Infraestrutura e Ferramentas"/>
+  <br>
 </div>
 
 ---
 
-<h2 align="center">
-  <span style="color: #ff0147;">▶ PROJETOS_DECRYPT</span>
-</h2>
-
-<table align="center">
-<tr>
-<td width="50%" align="center">
-
-### 🗡️ CALCULADORA VALOR HORA
-
-Algoritmo de cálculo de custos com suporte a múltiplas variáveis (salário, custos operacionais, margem de lucro).
-
-**[🔗 Acessar Projeto](Projetos/projeto01/projeto01.html)**
-
-</td>
-<td width="50%" align="center">
-
-### 🗡️ CLÍNICA ODONTOLÓGICA
-
-Sistema de gestão com suporte a agendamento, regras de disponibilidade e persistência de registros.
-
-**[🔗 Acessar Projeto](Projetos/projeto02/projeto02.html)**
-
-</td>
-</tr>
-</table>
-
----
-
-<h2 align="center">
-  <span style="color: #ff0147;">▶ ARSENAL_OPERACIONAL</span>
-</h2>
+### 📊 Produtividade e Código
+*(Métricas atualizadas em tempo real)*
 
 <div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=carloshenriquedevcombr&show_icons=true&theme=nord&hide_border=true" width="48%" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshenriquedevcombr&layout=compact&theme=nord&hide_border=true" width="48%" />
+</div>
 
-### 🖥️ Sistemas de Teste e Produção
+<br>
 
-| Windows 10 | Ubuntu Linux | Kali Linux | Pop!_OS | Parrot OS | Arch Linux |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| 🪟 | 🐧 | 🔓 | 🎨 | 🦜 | 🏗️ |
-
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=carloshenriquedevcombr&theme=nord&bg_color=2E3440&color=88C0D0&line=88C0D0&point=ECEFF4&area=true&hide_border=true" width="100%"/>
 </div>
 
 ---
 
-<h2 align="center">
-  <span style="color: #ff0147;">▶ REPOSITÓRIO_TÉCNICO</span>
-</h2>
-
+### 🤝 Vamos nos conectar?
 <div align="center">
-
-### < Linguagens Base / Performance >
-
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![C/C++](https://img.shields.io/badge/C%2FC%2B%2B-00599C?style=for-the-badge&logo=c&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-
-### < Segurança / Protocolos de Defesa >
-
-![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
-![bcrypt](https://img.shields.io/badge/bcrypt-6272A4?style=for-the-badge&logo=npm&logoColor=white)
-![Rate Limiting](https://img.shields.io/badge/Rate%20Limiting-FFD700?style=for-the-badge&logo=apache&logoColor=black)
-![CAPTCHA](https://img.shields.io/badge/CAPTCHA-4169E1?style=for-the-badge&logo=google&logoColor=white)
-![REST/GraphQL](https://img.shields.io/badge/REST%2FGraptQL-FF619A?style=for-the-badge&logo=graphql&logoColor=white)
-
-### < Persistência de Dados / Cloud >
-
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-CC2927?style=for-the-badge&logo=mysql&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-
+  <a href="https://www.linkedin.com/in/-carloshenrique"><img src="https://img.shields.io/badge/LinkedIn-4C566A?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:contato@carloshenriquedev.com.br"><img src="https://img.shields.io/badge/Email-4C566A?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="http://carloshenriquedev.com.br/"><img src="https://img.shields.io/badge/Portfolio-4C566A?style=for-the-badge&logo=ghost&logoColor=white" /></a>
 </div>
 
----
-
-<h2 align="center">
-  <span style="color: #ff0147;">▶ ESTATÍSTICAS_CRYPT</span>
-</h2>
+<br>
 
 <div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=carloshenrique&show_icons=true&theme=radical&hide_border=true&count_private=true&bg_color=1D1E20&title_color=ff0147&icon_color=E4454A&text_color=D0D0D0" alt="Estatísticas do GitHub" width="48%" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshenrique&layout=compact&langs_count=8&theme=radical&hide_border=true&bg_color=1D1E20&title_color=ff0147&icon_color=E4454A&text_color=D0D0D0" alt="Linguagens" width="48%" />
-
-</div>
-
----
-
-<h2 align="center">
-  <span style="color: #ff0147;">▶ GRÁFICO_DE_ATIVIDADE</span>
-</h2>
-
-<div align="center">
-
-![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=carloshenrique&theme=dark&hide_border=true&bg_color=1D1E20&color=D0D0D0&line=ff0147&point=ff0147)
-
-</div>
-
----
-
-<h2 align="center">
-  <span style="color: #ff0147;">▶ CONNECT_SECURE</span>
-</h2>
-
-<div align="center">
-
-### 🔐 Disponível para colaborações em Backend, Cibersegurança e Sistemas de Alto Desempenho
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-carloshenrique/)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contato@carloshenriquedev.com.br)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5519999496636)
-[![Site](https://img.shields.io/badge/Portfólio-ff0147?style=for-the-badge&logo=microsoft-internet-explorer&logoColor=white)](https://carloshenriquedev.com.br/)
-
----
-
-<p align="center">
-  <span style="color: #ff0147; font-family: 'Courier New', Courier, monospace; font-size: 1.1em;">
-    "O futuro está sendo construído em código. <br>
-     Eu garanto que ele seja seguro e rápido."
-  </span>
-</p>
-
+  <i>"Sabemos que todas as coisas cooperam para o bem daqueles que amam a Deus, daqueles que são chamados segundo o seu propósito."</i><br>
+  <b>— Romanos 8:28</b>
 </div>
