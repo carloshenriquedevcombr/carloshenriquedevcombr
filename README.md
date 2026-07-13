@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/carloshenriquedevcombr/carloshenriquedevcombr/refs/heads/main/imagens/Screenshot%20from%202026-02-28%2015-28-47.png" width="100%"/>
+  <img src="/workspaces/carloshenriquedevcombr/imagens/capa.png" width="100%"/>
 </div>
 
 <div align="center">
