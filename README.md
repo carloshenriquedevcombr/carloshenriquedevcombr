@@ -1,14 +1,26 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/carloshenriquedevcombr/carloshenriquedevcombr/refs/heads/main/imagens/capa.png" width="100%"/>
-</div>
 
-<div align="center">
+<img src="https://raw.githubusercontent.com/carloshenriquedevcombr/carloshenriquedevcombr/main/imagens/capa.png" width="100%" />
 
 # Carlos Henrique
 
-### Backend Developer • Python • Banco de Dados • Automação
+### 🚀 Backend Developer • Industrial Automation • Embedded Systems • IoT
 
-**Estudante de Ciência da Computação | Construindo soluções com foco em código limpo, performance e escalabilidade.**
+**Estudante de Ciência da Computação | Construindo soluções que unem Software, Hardware e Automação.**
+
+<br>
+
+<a href="https://www.linkedin.com/in/-carloshenrique">
+<img src="https://img.shields.io/badge/LinkedIn-E4454A?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="mailto:contato@carloshenriquedev.com.br">
+<img src="https://img.shields.io/badge/Email-E4454A?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+<a href="https://carloshenriquedev.com.br">
+<img src="https://img.shields.io/badge/Portfólio-E4454A?style=for-the-badge&logo=google-chrome&logoColor=white"/>
+</a>
 
 </div>
 
@@ -16,183 +28,250 @@
 
 # 👋 Sobre Mim
 
-Atualmente curso **Ciência da Computação** e trabalho com **Suporte de T.I.**, experiência que desenvolveu minha capacidade de investigar problemas, analisar ambientes computacionais e encontrar soluções de forma estruturada.
+Sou estudante de **Ciência da Computação** apaixonado por tecnologia e pela integração entre software, hardware e automação.
 
-Minha transição de carreira está totalmente direcionada ao **Desenvolvimento Backend**, com foco em **Python**, **Banco de Dados**, **APIs REST** e **Automação de Processos**.
+Meu principal foco profissional é o desenvolvimento **Backend utilizando Python**, porém também estudo infraestrutura Linux, Docker, Banco de Dados, Automação Industrial, Sistemas Embarcados e Internet das Coisas (IoT).
 
-Tenho interesse em desenvolver aplicações robustas, escaláveis e bem estruturadas, aplicando boas práticas de engenharia de software, arquitetura, organização de código, segurança e otimização de desempenho.
-
----
-
-# 🎯 Objetivos Profissionais
-
-Busco minha primeira oportunidade como **Desenvolvedor Backend**, contribuindo na construção de sistemas confiáveis e escaláveis.
-
-Atualmente concentro meus estudos em:
-
-* 🐍 Python
-* 🗄️ SQL e PostgreSQL
-* 🔗 APIs REST
-* ⚡ Algoritmos e Big O Notation
-* 📦 Docker
-* 🐧 Linux
-* 🌱 Git & GitHub
-* 🤖 Automação de Processos
-
-No médio prazo pretendo aprofundar meus conhecimentos em:
-
-* Arquitetura de Software
-* Microsserviços
-* Cloud Computing
-* Processamento de Dados
-* Inteligência Artificial aplicada à automação
+Estou construindo um laboratório próprio para aprender tecnologias utilizadas na indústria, automação e desenvolvimento de sistemas inteligentes.
 
 ---
 
-# 🚀 Projetos em Destaque
+# 🎯 Objetivo Profissional
 
-### 🏢 CRM Comercial
+Busco atuar como desenvolvedor Backend e evoluir minha carreira para áreas como:
 
-Sistema desenvolvido em Python com foco em arquitetura modular, organização de código e persistência de dados.
-
-**Principais recursos**
-
-* CRUD completo
-* Cadastro de Clientes
-* Cadastro de Empresas
-* Banco de Dados
-* Interface amigável
-* Estrutura organizada
-* Arquitetura modular
-* Tratamento de erros
-* Código documentado
+- 🐍 Desenvolvimento Backend
+- 🏭 Automação Industrial
+- 🤖 Sistemas Embarcados
+- 🌐 IoT
+- 📊 Banco de Dados
+- ☁ Cloud Computing
+- 🔒 Cybersecurity
 
 ---
 
-### 🤖 Automações
+# 🧪 Meu Laboratório
 
-Projetos utilizando Python para automatizar tarefas repetitivas e aumentar produtividade.
+Atualmente possuo um laboratório de estudos onde desenvolvo projetos reais utilizando:
+
+## 💻 Software
+
+- Python
+- Linux
+- Docker
+- PostgreSQL
+- Git
+- GitHub
+- VS Code
+- WSL
+
+## ⚡ Hardware
+
+- ESP32
+- Arduino Uno
+- Protoboard
+- Sensores
+- Relés
+- Motores
+- Displays
+- Componentes eletrônicos
+
+## 🌐 Infraestrutura
+
+- VPS Ubuntu
+- Docker
+- APIs
+- Reverse Proxy
+- Banco de Dados
+- Redes
 
 ---
 
-### 🌐 APIs REST
+# 🚀 Projetos
 
-Projetos focados na criação de APIs utilizando boas práticas de desenvolvimento Backend.
+## 🐍 Backend
+
+- APIs REST
+- CRUDs
+- Sistemas comerciais
+- Integração com Banco de Dados
 
 ---
 
-### 📊 Banco de Dados
+## 🤖 Automação
 
-Projetos envolvendo modelagem, consultas SQL, otimização e persistência de dados.
+- Arduino
+- ESP32
+- Sensores
+- Controle de dispositivos
+
+---
+
+## 🌐 IoT
+
+- Comunicação entre ESP32 e Servidor
+- APIs
+- MQTT (em estudo)
+
+---
+
+## 💾 Banco de Dados
+
+- PostgreSQL
+- SQL
+- Modelagem
+- Consultas
+- Performance
 
 ---
 
 # 📚 Atualmente Estudando
 
-* Python Avançado
-* PostgreSQL
-* SQL Moderno
-* Estruturas de Dados
-* Algoritmos
-* Big O Notation
-* Desenvolvimento de APIs
-* Docker
-* Linux
-* Automação com Python
+## Desenvolvimento
+
+- Python Avançado
+- Estruturas de Dados
+- Algoritmos
+- Clean Code
+- SOLID
+- APIs REST
+
+## Banco de Dados
+
+- PostgreSQL
+- SQL Moderno
+- Modelagem
+
+## Infraestrutura
+
+- Linux
+- Docker
+- VPS
+- Git
+- GitHub
+
+## Automação
+
+- Arduino
+- ESP32
+- Eletrônica
+- Sensores
+- Comunicação Serial
+
+## Próximos Estudos
+
+- CLP
+- MQTT
+- Node-RED
+- Raspberry Pi
+- Modbus
+- OPC-UA
+- C++
+- Java
 
 ---
 
-# 🛠️ Tecnologias
+# 🛠 Tecnologias
 
 <div align="center">
 
 ### Linguagens
 
-<img src="https://skillicons.dev/icons?i=python,java,c,cs" />
+<img src="https://skillicons.dev/icons?i=python,java,c,cpp,bash"/>
 
 <br><br>
 
 ### Backend
 
-<img src="https://skillicons.dev/icons?i=python" />
+<img src="https://skillicons.dev/icons?i=python,fastapi,flask"/>
 
 <br><br>
 
 ### Banco de Dados
 
-<img src="https://skillicons.dev/icons?i=postgres,mysql,sqlite" />
+<img src="https://skillicons.dev/icons?i=postgres,mysql,sqlite"/>
 
 <br><br>
 
-### Ferramentas
+### Infraestrutura
 
-<img src="https://skillicons.dev/icons?i=docker,git,github,bash,linux,ubuntu,vscode" />
+<img src="https://skillicons.dev/icons?i=docker,linux,ubuntu,git,github,vscode"/>
+
+<br><br>
+
+### Embarcados
+
+<img src="https://skillicons.dev/icons?i=arduino"/>
 
 </div>
 
 ---
 
-# 📈 Atualmente Aprendendo
-
-✔ Clean Code
-
-✔ SOLID
-
-✔ Design Patterns
-
-✔ Arquitetura Backend
-
-✔ SQL Performance
-
-✔ Modelagem de Dados
-
-✔ Docker
-
-✔ APIs REST
-
-✔ Automação
-
-✔ Testes Automatizados
-
----
-
-# 📊 GitHub
+# 📈 Estatísticas
 
 <div align="center">
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=carloshenriquedevcombr&theme=nord&bg_color=2E3440&color=88C0D0&line=88C0D0&point=ECEFF4&area=true&hide_border=true" width="100%"/>
+<img height="170em" src="https://github-readme-stats.vercel.app/api?username=carloshenriquedevcombr&show_icons=true&theme=tokyonight&hide_border=true"/>
+
+<img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=carloshenriquedevcombr&layout=compact&theme=tokyonight&hide_border=true"/>
 
 </div>
+
+<br>
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=carloshenriquedevcombr&theme=tokyonight&hide_border=true"/>
+
+</div>
+
+<br>
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=carloshenriquedevcombr&theme=tokyo-night&hide_border=true"/>
+
+</div>
+
+---
+
+# 🗺️ Roadmap
+
+```text
+Backend Developer
+        │
+        ▼
+Python + SQL + APIs
+        │
+        ▼
+Docker + Linux + Cloud
+        │
+        ▼
+Automação Industrial
+        │
+        ▼
+Sistemas Embarcados
+        │
+        ▼
+IoT
+        │
+        ▼
+Cybersecurity
+```
 
 ---
 
 # 💡 Filosofia
 
-> "Acredito que bons sistemas são construídos através de código limpo, aprendizado contínuo e atenção aos detalhes."
+> **Tecnologia só faz sentido quando resolve problemas reais.**
 
----
-
-# 🤝 Vamos nos conectar?
-
-<div align="center">
-
-<a href="https://www.linkedin.com/in/-carloshenrique">
-<img src="https://img.shields.io/badge/LinkedIn-4C566A?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-
-<a href="mailto:contato@carloshenriquedev.com.br">
-<img src="https://img.shields.io/badge/Email-4C566A?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-
-<a href="http://carloshenriquedev.com.br/">
-<img src="https://img.shields.io/badge/Portfólio-4C566A?style=for-the-badge&logo=google-chrome&logoColor=white"/>
-</a>
-
-</div>
+Acredito em aprendizado contínuo, código limpo, disciplina e prática constante.
 
 ---
 
 <div align="center">
+
+### 📖 Versículo que guia minha caminhada
 
 *"Tudo quanto fizerdes, fazei-o de todo o coração, como para o Senhor e não para os homens."*
 
