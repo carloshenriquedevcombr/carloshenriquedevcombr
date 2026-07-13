@@ -273,8 +273,8 @@ Acredito em aprendizado contínuo, código limpo, disciplina e prática constant
 
 ### 📖 Versículo que guia minha caminhada
 
-*"Tudo quanto fizerdes, fazei-o de todo o coração, como para o Senhor e não para os homens."*
+*"Sabemos que todas as coisas cooperam para o bem daqueles que amam a Deus, daqueles que são chamados segundo o seu propósito"*
 
-**Colossenses 3:23**
+**📖 Romanos 8:28**
 
 </div>
