@@ -187,3 +187,11 @@ Docker + Linux + Infraestrutura
         │
         ▼
 Cloud Computing & DevOps (Evolução Futura)
+```
+
+<div align="center">
+"Sabemos que todas as coisas cooperam para o bem daqueles que amam a Deus, daqueles que são chamados segundo o seu propósito"
+
+**📖 Romanos 8:28**
+</div>
+
