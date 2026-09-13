@@ -1,12 +1,13 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/carloshenriquedevcombr/carloshenriquedevcombr/main/imagens/capa.png" width="100%" />
+<!--  <img src="https://raw.githubusercontent.com/carloshenriquedevcombr/carloshenriquedevcombr/main/imagens/capa.png" width="100%" /> -->
 
-# Carlos Henrique
+# Carlos Henrique <p>
 
-### 🚀 Backend Developer • Industrial Automation • Embedded Systems • IoT
 
-**Estudante de Ciência da Computação | Construindo soluções que unem Software, Hardware e Automação.**
+### 🚀 Desenvolvimento • Dados • Automação • Infraestrutura
+
+**Estudante de Ciência da Computação | Unindo Desenvolvimento, Dados e Operação.**
 
 <br>
 
@@ -28,146 +29,94 @@
 
 # 👋 Sobre Mim
 
-Sou estudante de **Ciência da Computação** apaixonado por tecnologia e pela integração entre software, hardware e automação.
+Profissional de Tecnologia com experiência prática em suporte técnico, infraestrutura, sistemas, automação e resolução de problemas, combinando conhecimento técnico com experiência em liderança, treinamento e operação.
 
-Meu principal foco profissional é o desenvolvimento **Backend utilizando Python**, porém também estudo infraestrutura Linux, Docker, Banco de Dados, Automação Industrial, Sistemas Embarcados e Internet das Coisas (IoT).
+Minha trajetória profissional foi construída na prática: atendimento e suporte a usuários, diagnóstico e resolução de problemas técnicos, administração de ambientes Linux e VPS, configuração de serviços, automação de processos, integração de sistemas e desenvolvimento de soluções internas.
 
-Estou construindo um laboratório próprio para aprender tecnologias utilizadas na indústria, automação e desenvolvimento de sistemas inteligentes.
+Atualmente atuo também na liderança de equipes, realizando treinamento e integração de novos colaboradores, organização operacional, acompanhamento de indicadores, gestão de demandas e suporte à resolução de problemas.
+
+Na área técnica, venho aprofundando conhecimentos em Python, Linux, redes, SQL, bancos de dados, Docker, APIs e infraestrutura, buscando compreender não apenas como uma solução é desenvolvida, mas também como ela é implantada, mantida e diagnosticada.
+
+Gosto de problemas que exigem investigação, organização e raciocínio técnico — principalmente aqueles em que é necessário entender a causa do problema, encontrar uma solução e fazer o ambiente voltar a funcionar.
 
 ---
 
 # 🎯 Objetivo Profissional
 
-Busco atuar como desenvolvedor Backend e evoluir minha carreira para áreas como:
+Meu objetivo profissional é atuar em **Desenvolvimento, Dados, Automação, Sistemas ou Infraestrutura**, utilizando minha experiência prática e minha formação em Ciência da Computação para construir soluções, automatizar processos e trabalhar com dados.
 
-- 🐍 Desenvolvimento Backend
-- 🏭 Automação Industrial
-- 🤖 Sistemas Embarcados
-- 🌐 IoT
-- 📊 Banco de Dados
-- ☁ Cloud Computing
-- 🔒 Cybersecurity
+**🎯 Eixo Principal:**
+- 🐍 Desenvolvimento Backend (Python)
+- 📊 Dados (SQL / PostgreSQL)
+
+**🔧 Diferenciais Técnicos:**
+- 🐧 Infraestrutura & Linux
+- 🐳 Docker & VPS
+- ⚙️ Automação
 
 ---
 
 # 🧪 Meu Laboratório
 
-Atualmente possuo um laboratório de estudos onde desenvolvo projetos reais utilizando:
+Atualmente possuo um laboratório de estudos onde desenvolvo projetos reais para consolidar meus conhecimentos em Desenvolvimento, Dados e Infraestrutura:
 
-## 💻 Software
-
+## 💻 Software & Dados
 - Python
-- Linux
-- Docker
-- PostgreSQL
-- Git
-- GitHub
-- VS Code
-- WSL
+- PostgreSQL / SQL
+- APIs REST
+- Git & GitHub
+- VS Code & WSL
 
-## ⚡ Hardware
-
-- ESP32
-- Arduino Uno
-- Protoboard
-- Sensores
-- Relés
-- Motores
-- Displays
-- Componentes eletrônicos
-
-## 🌐 Infraestrutura
-
+## 🌐 Infraestrutura & Automação
 - VPS Ubuntu
 - Docker
-- APIs
 - Reverse Proxy
-- Banco de Dados
 - Redes
+- Integração de Sistemas
+
+## ⚡ Hardware & Embarcados (Projetos Secundários)
+- ESP32 & Arduino Uno
+- Sensores, Relés e Motores
+- Componentes eletrônicos
 
 ---
 
 # 🚀 Projetos
 
-## 🐍 Backend
+## 🐍 Backend & Dados
+- Desenvolvimento de APIs REST
+- Criação de CRUDs e Sistemas Comerciais
+- Integração e Modelagem de Banco de Dados (PostgreSQL)
 
-- APIs REST
-- CRUDs
-- Sistemas comerciais
-- Integração com Banco de Dados
+## ⚙️ Infraestrutura & Automação
+- Configuração de Servidores Linux (VPS)
+- Deploy com Docker
+- Automação de Rotinas e Processos
 
----
-
-## 🤖 Automação
-
-- Arduino
-- ESP32
-- Sensores
-- Controle de dispositivos
-
----
-
-## 🌐 IoT
-
+## 🤖 Automação & IoT (Integração)
 - Comunicação entre ESP32 e Servidor
-- APIs
-- MQTT (em estudo)
-
----
-
-## 💾 Banco de Dados
-
-- PostgreSQL
-- SQL
-- Modelagem
-- Consultas
-- Performance
+- Controle de dispositivos e leitura de sensores
 
 ---
 
 # 📚 Atualmente Estudando
 
-## Desenvolvimento
-
+## Desenvolvimento & Dados (Foco Atual)
 - Python Avançado
-- Estruturas de Dados
-- Algoritmos
-- Clean Code
-- SOLID
-- APIs REST
+- Estruturas de Dados e Algoritmos
+- APIs REST e Integrações
+- SQL Moderno e Modelagem (PostgreSQL)
+- Clean Code e SOLID
 
-## Banco de Dados
-
-- PostgreSQL
-- SQL Moderno
-- Modelagem
-
-## Infraestrutura
-
-- Linux
+## Infraestrutura (Aprimoramento)
+- Linux Avançado
 - Docker
-- VPS
-- Git
-- GitHub
+- Administração de VPS
 
-## Automação
-
-- Arduino
-- ESP32
-- Eletrônica
-- Sensores
-- Comunicação Serial
-
-## Próximos Estudos
-
-- CLP
-- MQTT
-- Node-RED
-- Raspberry Pi
-- Modbus
-- OPC-UA
-- C++
-- Java
+## Próximos Passos (Evolução Futura)
+- Cloud Computing
+- Práticas DevOps
+- Pipeline de Dados
 
 ---
 
@@ -176,31 +125,21 @@ Atualmente possuo um laboratório de estudos onde desenvolvo projetos reais util
 <div align="center">
 
 ### Linguagens
-
 <img src="https://skillicons.dev/icons?i=python,java,c,cpp,bash"/>
 
 <br><br>
 
-### Backend
-
-<img src="https://skillicons.dev/icons?i=python,fastapi,flask"/>
-
-<br><br>
-
-### Banco de Dados
-
-<img src="https://skillicons.dev/icons?i=postgres,mysql,sqlite"/>
+### Backend & Dados
+<img src="https://skillicons.dev/icons?i=python,fastapi,flask,postgres,mysql,sqlite"/>
 
 <br><br>
 
-### Infraestrutura
-
+### Infraestrutura & Automação
 <img src="https://skillicons.dev/icons?i=docker,linux,ubuntu,git,github,vscode"/>
 
 <br><br>
 
 ### Embarcados
-
 <img src="https://skillicons.dev/icons?i=arduino"/>
 
 </div>
@@ -235,46 +174,16 @@ Atualmente possuo um laboratório de estudos onde desenvolvo projetos reais util
 
 ---
 
-# 🗺️ Roadmap
+# 🗺️ Roadmap de Evolução
 
 ```text
-Backend Developer
+Desenvolvimento & Dados (Foco Atual)
         │
         ▼
 Python + SQL + APIs
         │
         ▼
-Docker + Linux + Cloud
+Docker + Linux + Infraestrutura
         │
         ▼
-Automação Industrial
-        │
-        ▼
-Sistemas Embarcados
-        │
-        ▼
-IoT
-        │
-        ▼
-Cybersecurity
-```
-
----
-
-# 💡 Filosofia
-
-> **Tecnologia só faz sentido quando resolve problemas reais.**
-
-Acredito em aprendizado contínuo, código limpo, disciplina e prática constante.
-
----
-
-<div align="center">
-
-### 📖 Versículo que guia minha caminhada
-
-*"Sabemos que todas as coisas cooperam para o bem daqueles que amam a Deus, daqueles que são chamados segundo o seu propósito"*
-
-**📖 Romanos 8:28**
-
-</div>
+Cloud Computing & DevOps (Evolução Futura)
