@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.db
+
+# Segredos
+.env
+!.env.example
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
