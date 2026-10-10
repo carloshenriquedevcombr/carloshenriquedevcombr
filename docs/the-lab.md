@@ -6,7 +6,7 @@ O `README.md` da raiz continua sendo o perfil do GitHub; o projeto vive em `back
 ```
 backend/    API FastAPI + SQLModel + Alembic (PostgreSQL)
 frontend/   Next.js (App Router) + TypeScript + Tailwind
-docker-compose.yml   db + api + web
+docker-compose.yml   db + redis + api + web
 .github/workflows/ci.yml   lint, testes, SAST, migrations, build e gitleaks
 ```
 
@@ -61,6 +61,9 @@ cd frontend && npm run lint && npm run typecheck && npm run build
 | GET | `/projects/{slug}` | Estudo de caso completo |
 | GET | `/profile` | Timeline da carreira + skills com evidências |
 | POST | `/contact` | Formulário de contato (rate limit + honeypot) |
+| GET | `/metrics` | Snapshot das métricas (uptime, requisições, comandos, GitHub) |
+| WS | `/terminal/ws` | Terminal interativo (texto → JSON com linhas e eventos) |
+| WS | `/metrics/ws` | Métricas ao vivo, um snapshot a cada 3s |
 
 ## Editando o conteúdo
 
@@ -103,12 +106,30 @@ Cuidados de performance e acessibilidade:
 - `prefers-reduced-motion` desliga rotação automática, pulsos e animações
 - sem WebGL, aparece a versão 2D; todos os componentes também são acessíveis por botões
 
+## Terminal e Live Metrics (Fase 3)
+
+**Terminal** (`backend/app/terminal/commands.py` + `frontend/src/components/terminal/`):
+
+- Nenhum comando chega a um shell: a entrada é quebrada com `shlex` e comparada com uma
+  allowlist de funções Python. Metacaracteres (`;`, `$( )`, `|`) não têm efeito.
+- Proteção contra Cross-Site WebSocket Hijacking: origens fora de `CORS_ORIGINS` são recusadas.
+- Limites: 512 caracteres por comando, 15 comandos a cada 10s por conexão, 3 conexões
+  simultâneas por IP e timeout de 5 min sem atividade.
+- Comandos como `nmap lab.local` e `mode red|blue|purple` emitem eventos que animam o rack 3D.
+- Para adicionar um comando: uma função com `@command("nome", "descrição")`.
+
+**Live Metrics**: contadores (requisições, comandos) num hash do Redis, somando todas as
+réplicas. Contagens do banco ficam em cache por 10s. As estatísticas do GitHub são coletadas
+por uma tarefa de fundo a cada 15 min, sem token: a API pública dá 60 req/h por IP.
+
+Sem `REDIS_URL`, rate limit e métricas ficam em memória (bom para desenvolvimento).
+
 ## Roadmap
 
 | Fase | Entrega | Status |
 |---|---|---|
 | 1 · MVP | API + banco + site 2D, CV e projetos documentados | ✅ |
 | 2 · Primeira cena 3D | Workbench (React Three Fiber) no hero + Boot Sequence | ✅ |
-| 3 · Interatividade | Terminal via WebSocket, Live Metrics, rate limit em Redis | ⏳ |
+| 3 · Interatividade | Terminal via WebSocket, Live Metrics, rate limit em Redis | ✅ |
 | 4 · Data Reactor | Pipeline de partículas com dados reais + mini-CTF | ⏳ |
 | 5 · Hardening | CSP com nonce, página `/security`, Trivy, fallback 2D refinado | ⏳ |

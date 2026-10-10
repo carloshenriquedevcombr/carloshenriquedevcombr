@@ -5,9 +5,11 @@ import { BootSequence } from "@/components/boot-sequence";
 import { Changelog } from "@/components/changelog";
 import { ContactForm } from "@/components/contact-form";
 import { Hero } from "@/components/hero";
+import { LiveMetrics } from "@/components/live-metrics";
 import { ProjectsLab } from "@/components/projects-lab";
 import { Section } from "@/components/section";
 import { SkillMatrix } from "@/components/skill-matrix";
+import { TerminalLab } from "@/components/terminal-lab";
 import { getProfile, getProjects, orNull } from "@/lib/api";
 import { site } from "@/lib/site";
 
@@ -69,6 +71,24 @@ export default function Home() {
         <Suspense fallback={<LoadingBlock label="projetos" />}>
           <ProjectsData />
         </Suspense>
+      </Section>
+
+      <Section
+        id="terminal"
+        index="05 · THE TERMINAL"
+        title="Acesso ao laboratório"
+        subtitle="Um terminal de verdade, conectado à API por WebSocket. Experimente 'nmap lab.local' e 'mode red' (no desktop, o rack ao lado reage aos comandos)."
+      >
+        <TerminalLab />
+      </Section>
+
+      <Section
+        id="metricas"
+        index="06 · LIVE METRICS"
+        title="Telemetria do lab"
+        subtitle="Números reais desta aplicação, transmitidos ao vivo pela API (contadores em Redis)."
+      >
+        <LiveMetrics />
       </Section>
 
       <Section

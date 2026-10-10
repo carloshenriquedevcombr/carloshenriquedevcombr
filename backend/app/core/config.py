@@ -18,6 +18,21 @@ class Settings(BaseSettings):
     contact_rate_limit: int = 5
     contact_rate_window: int = 3600
 
+    # Redis (opcional): compartilha rate limit e métricas entre réplicas da API.
+    # Vazio = tudo em memória, suficiente para uma única instância.
+    redis_url: str = ""
+
+    # Terminal interativo (WebSocket)
+    terminal_max_message: int = 512
+    terminal_rate_limit: int = 15  # comandos por janela, por conexão
+    terminal_rate_window: int = 10
+    terminal_idle_timeout: int = 300
+    ws_max_connections_per_ip: int = 3
+
+    # Usuário do GitHub cujas estatísticas aparecem no Live Metrics (vazio = desligado)
+    github_username: str = ""
+    github_refresh_seconds: int = 900
+
     # Sal usado para gravar o IP do remetente como hash (nunca em texto puro)
     ip_hash_salt: str = "change-me"
 

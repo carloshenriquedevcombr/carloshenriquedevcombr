@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const wsUrl = apiUrl.replace(/^http/, "ws");
 const isDev = process.env.NODE_ENV !== "production";
 
 // CSP inicial. 'unsafe-inline' em script-src é necessário enquanto não usamos
@@ -11,7 +12,7 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  `connect-src 'self' ${apiUrl}`,
+  `connect-src 'self' ${apiUrl} ${wsUrl}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

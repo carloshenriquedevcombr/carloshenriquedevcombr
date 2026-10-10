@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useReducedMotion, useWideScreen } from "@/lib/hooks";
 import { WorkbenchFallback } from "./fallback";
 import { PARTS, PART_BY_ID, type PartId } from "./parts";
 
@@ -11,18 +12,6 @@ const WorkbenchScene = dynamic(() => import("./scene"), {
   ssr: false,
   loading: () => <WorkbenchFallback note="workbench · carregando cena 3D..." />,
 });
-
-function useMediaQuery(query: string): boolean {
-  return useSyncExternalStore(
-    (cb) => {
-      const mq = window.matchMedia(query);
-      mq.addEventListener("change", cb);
-      return () => mq.removeEventListener("change", cb);
-    },
-    () => window.matchMedia(query).matches,
-    () => false,
-  );
-}
 
 function hasWebGL(): boolean {
   try {
@@ -37,12 +26,12 @@ const noop = () => () => {};
 
 /** Bancada 3D do hero. Só é montada em telas md+ (no celular nem baixa o three.js). */
 export function Workbench() {
-  const wide = useMediaQuery("(min-width: 768px)");
+  const wide = useWideScreen();
   return wide ? <WorkbenchPanel /> : null;
 }
 
 function WorkbenchPanel() {
-  const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const reducedMotion = useReducedMotion();
   // null no servidor: decide entre 3D e fallback só no cliente
   const webgl = useSyncExternalStore(noop, hasWebGL, () => null);
 

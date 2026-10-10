@@ -71,3 +71,22 @@ class HealthOut(BaseModel):
     status: str
     version: str
     database: str
+
+
+class GitHubStatsOut(BaseModel):
+    username: str
+    public_repos: int
+    followers: int
+    last_push_at: str | None
+    last_push_repo: str | None
+
+
+class MetricsOut(BaseModel):
+    timestamp: datetime
+    uptime_seconds: int
+    requests_total: int
+    terminal_commands_total: int
+    live_connections: int
+    projects_total: int
+    contact_messages_total: int
+    github: GitHubStatsOut | None

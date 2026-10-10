@@ -4,7 +4,8 @@ from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlmodel import Session
 
 from app.core.config import get_settings
-from app.core.rate_limit import SlidingWindowRateLimiter
+from app.core.rate_limit import build_rate_limiter
+from app.core.redis import get_sync_redis
 from app.core.security import client_ip, hash_ip
 from app.db import get_session
 from app.models import ContactMessage
@@ -14,7 +15,9 @@ logger = logging.getLogger("lab.contact")
 router = APIRouter(prefix="/contact", tags=["contact"])
 
 _settings = get_settings()
-limiter = SlidingWindowRateLimiter(_settings.contact_rate_limit, _settings.contact_rate_window)
+limiter = build_rate_limiter(
+    get_sync_redis(), _settings.contact_rate_limit, _settings.contact_rate_window, "rl:contact"
+)
 
 
 @router.post("", response_model=ContactAck, status_code=status.HTTP_202_ACCEPTED)
