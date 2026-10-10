@@ -5,6 +5,8 @@ tokens e comparada com uma lista fechada de comandos implementados em Python;
 qualquer outra coisa recebe "command not found".
 """
 
+import base64
+import binascii
 import shlex
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -13,6 +15,7 @@ from typing import Any
 from sqlmodel import Session, func, select
 
 from app.core.metrics import uptime_seconds
+from app.ctf import flag_for
 from app.models import Project, Skill, SkillGroup, TimelineEntry
 
 # Hosts do "laboratório": espelham o docker-compose real (e o rack 3D no frontend)
@@ -28,6 +31,24 @@ LAB_HOSTS = [
     {"id": i, "ip": ip, "port": port, "state": state, "service": svc}
     for i, ip, port, state, svc in _HOSTS
 ]
+
+NMAP_ALLOWED_TARGETS = {"lab.local", "10.0.0.0/24", "localhost"}
+
+
+def nmap_in_scope(args: list[str]) -> bool:
+    target = next((a for a in args if not a.startswith("-")), "lab.local")
+    return target in NMAP_ALLOWED_TARGETS
+
+
+def command_kind(raw: str) -> str:
+    """Nome do comando para a telemetria (nunca o texto digitado)."""
+    try:
+        tokens = shlex.split(raw)
+    except ValueError:
+        return "cmd:unknown"
+    name = tokens[0].lower() if tokens else ""
+    return f"cmd:{name}" if name in COMMANDS else "cmd:unknown"
+
 
 MODES = {
     "red": "Modo RED TEAM: pensar como atacante — reconhecimento, superfície, exploração.",
@@ -117,11 +138,15 @@ def _whoami(args: list[str], ctx: Context) -> Reply:
 
 @command("ls", "lista os projetos (ls projects)")
 def _ls(args: list[str], ctx: Context) -> Reply:
+    show_hidden = any(a.startswith("-") and "a" in a for a in args)
+    args = [a for a in args if not a.startswith("-")]
     target = args[0] if args else "projects"
     if target.rstrip("/") not in ("projects", "projetos", "."):
         return Reply().out(f"ls: não foi possível acessar '{target}': permissão negada", "error")
     projects = ctx.session.exec(select(Project).order_by(Project.sort_order)).all()
     reply = Reply()
+    if show_hidden:
+        reply.out("  .secret                      [?]", "muted")
     for p in projects:
         reply.out(f"  {p.slug:<28} [{p.category.value}]", "accent" if p.featured else None)
     return reply.out(f"{len(projects)} projetos · use 'cat <projeto>' para detalhes", "muted")
@@ -131,6 +156,10 @@ def _ls(args: list[str], ctx: Context) -> Reply:
 def _cat(args: list[str], ctx: Context) -> Reply:
     if not args:
         return Reply().out("uso: cat <projeto>  (veja 'ls projects')", "error")
+    if args[0] in (".secret", "./.secret", "projects/.secret"):
+        # CTF #3 (Linux): a flag vem codificada; decodificar faz parte do desafio
+        encoded = base64.b64encode(flag_for("terminal").encode()).decode()
+        return Reply().out(encoded).out("hmm... parece base64.", "muted")
     slug = args[0].removeprefix("projects/").removesuffix(".md")
     project = ctx.session.exec(select(Project).where(Project.slug == slug)).first()
     if project is None:
@@ -168,7 +197,7 @@ def _timeline(args: list[str], ctx: Context) -> Reply:
 @command("nmap", "varre a rede do laboratório (nmap lab.local)")
 def _nmap(args: list[str], ctx: Context) -> Reply:
     target = next((a for a in args if not a.startswith("-")), "lab.local")
-    if target not in ("lab.local", "10.0.0.0/24", "localhost"):
+    if not nmap_in_scope(args):
         return (
             Reply()
             .out(f"nmap: alvo '{target}' fora do escopo autorizado.", "error")
@@ -219,6 +248,20 @@ def _stats(args: list[str], ctx: Context) -> Reply:
         .out(f"requisições servidas ... {ctx.stats.get('requests_total', 0)}")
         .out("→ painel completo na seção Live Metrics", "info")
     )
+
+
+@command("base64", "codifica ou decodifica (base64 [-d] <texto>)")
+def _base64(args: list[str], ctx: Context) -> Reply:
+    decode = "-d" in args or "--decode" in args
+    text = " ".join(a for a in args if a not in ("-d", "--decode"))
+    if not text:
+        return Reply().out("uso: base64 [-d] <texto>", "error")
+    if not decode:
+        return Reply().out(base64.b64encode(text.encode()).decode())
+    try:
+        return Reply().out(base64.b64decode(text, validate=True).decode())
+    except (binascii.Error, UnicodeDecodeError):
+        return Reply().out("base64: entrada inválida", "error")
 
 
 @command("contact", "como falar comigo")

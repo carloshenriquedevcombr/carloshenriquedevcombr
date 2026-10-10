@@ -3,9 +3,10 @@ import { PUBLIC_API_URL } from "@/lib/api";
 
 const NAV = [
   { href: "/#origem", label: "Origem" },
-  { href: "/#skills", label: "Skills" },
   { href: "/#projetos", label: "Projetos" },
   { href: "/#terminal", label: "Terminal" },
+  { href: "/#reactor", label: "Reactor" },
+  { href: "/#ctf", label: "CTF" },
   { href: "/#contato", label: "Contato" },
 ];
 
@@ -16,7 +17,7 @@ export function SiteHeader() {
         <Link href="/" className="font-mono text-sm text-accent">
           ~/the-lab<span className="text-muted">$</span>
         </Link>
-        <nav aria-label="Principal" className="hidden gap-6 font-mono text-sm text-muted md:flex">
+        <nav aria-label="Principal" className="hidden gap-5 font-mono text-sm text-muted lg:flex">
           {NAV.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-foreground">
               {item.label}

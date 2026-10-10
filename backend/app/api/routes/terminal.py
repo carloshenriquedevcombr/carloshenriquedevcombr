@@ -13,6 +13,8 @@ from app.core.rate_limit import SlidingWindowRateLimiter
 from app.core.security import hash_ip
 from app.core.ws import connections, origin_allowed
 from app.db import get_engine
+from app.pipeline.bus import bus
+from app.pipeline.events import LabEvent
 from app.terminal import commands
 
 logger = logging.getLogger("lab.terminal")
@@ -69,11 +71,15 @@ async def terminal(websocket: WebSocket, engine: Engine = Depends(get_engine)) -
                 limit = settings.terminal_max_message
                 reply = commands.Reply().out(f"entrada muito longa (máx. {limit} chars)", "error")
             elif not limiter.allow("conn"):
+                await bus.ingest(LabEvent("terminal", "rate-limited", ip_key))
                 reply = commands.Reply().out(
                     "rate limit: calma, hacker. Aguarde alguns segundos.", "error"
                 )
             else:
                 await metrics.incr("terminal_commands_total")
+                if raw.strip():
+                    event = LabEvent("terminal", commands.command_kind(raw), ip_key, detail=raw)
+                    await bus.ingest(event)
                 stats = await metrics.get_all()
                 reply = await run_in_threadpool(_execute, raw, engine, stats)
             await websocket.send_json(_payload(reply))

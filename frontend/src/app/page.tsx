@@ -4,13 +4,16 @@ import { ApiOffline, LoadingBlock } from "@/components/api-offline";
 import { BootSequence } from "@/components/boot-sequence";
 import { Changelog } from "@/components/changelog";
 import { ContactForm } from "@/components/contact-form";
+import { CtfBeacon } from "@/components/ctf/ctf-beacon";
+import { CtfBoard } from "@/components/ctf/ctf-board";
 import { Hero } from "@/components/hero";
 import { LiveMetrics } from "@/components/live-metrics";
 import { ProjectsLab } from "@/components/projects-lab";
+import { DataReactor } from "@/components/reactor/data-reactor";
 import { Section } from "@/components/section";
 import { SkillMatrix } from "@/components/skill-matrix";
 import { TerminalLab } from "@/components/terminal-lab";
-import { getProfile, getProjects, orNull } from "@/lib/api";
+import { getChallenges, getProfile, getProjects, orNull } from "@/lib/api";
 import { site } from "@/lib/site";
 
 // Os dados vêm da API a cada requisição e chegam via streaming:
@@ -32,6 +35,12 @@ async function ProjectsData() {
   const projects = await orNull(getProjects());
   if (!projects) return <ApiOffline what="os projetos" />;
   return <ProjectsLab projects={projects} />;
+}
+
+async function CtfData() {
+  const challenges = await orNull(getChallenges());
+  if (!challenges) return <ApiOffline what="o CTF" />;
+  return <CtfBoard challenges={challenges} />;
 }
 
 export default function Home() {
@@ -92,8 +101,31 @@ export default function Home() {
       </Section>
 
       <Section
+        id="reactor"
+        index="07 · DATA REACTOR"
+        title="Pipeline de dados com detecção"
+        subtitle="Cada requisição e comando deste site passa por Extract → Transform → Load. No Transform, regras de detecção mapeadas no MITRE ATT&CK desviam o que é malicioso para o SIEM."
+      >
+        <DataReactor />
+      </Section>
+
+      <Section
+        id="ctf"
+        index="08 · MINI-CTF"
+        title="Capture the flag"
+        subtitle="Três flags escondidas neste próprio site. Encontre, envie e entre para o Hall of Fame."
+      >
+        <Suspense fallback={<LoadingBlock label="desafios" />}>
+          <CtfData />
+        </Suspense>
+        <Suspense fallback={null}>
+          <CtfBeacon />
+        </Suspense>
+      </Section>
+
+      <Section
         id="contato"
-        index="08 · HANDSHAKE"
+        index="09 · HANDSHAKE"
         title="Vamos conversar"
         subtitle="Procuro vagas de desenvolvimento backend, automação e dados. O formulário fala direto com a API (com rate limit e honeypot)."
       >

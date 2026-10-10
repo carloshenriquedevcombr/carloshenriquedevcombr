@@ -3,6 +3,9 @@ from functools import lru_cache
 from pydantic import model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# Valor só para desenvolvimento; a API se recusa a subir em produção com ele
+DEV_CTF_SECRET = "dev-ctf-secret"  # noqa: S105  # nosec B105
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
@@ -27,11 +30,15 @@ class Settings(BaseSettings):
     terminal_rate_limit: int = 15  # comandos por janela, por conexão
     terminal_rate_window: int = 10
     terminal_idle_timeout: int = 300
-    ws_max_connections_per_ip: int = 3
+    # Cada página abre 3 WebSockets (terminal, métricas, reactor); folga para abas e NAT
+    ws_max_connections_per_ip: int = 10
 
     # Usuário do GitHub cujas estatísticas aparecem no Live Metrics (vazio = desligado)
     github_username: str = ""
     github_refresh_seconds: int = 900
+
+    # Segredo do CTF: as flags são HMACs dele, então nunca aparecem no código
+    ctf_secret: str = DEV_CTF_SECRET
 
     # Sal usado para gravar o IP do remetente como hash (nunca em texto puro)
     ip_hash_salt: str = "change-me"
@@ -40,6 +47,8 @@ class Settings(BaseSettings):
     def _reject_default_secrets_in_production(self) -> "Settings":
         if self.is_production and self.ip_hash_salt == "change-me":
             raise ValueError("Defina IP_HASH_SALT antes de rodar em produção")
+        if self.is_production and self.ctf_secret == DEV_CTF_SECRET:
+            raise ValueError("Defina CTF_SECRET antes de rodar em produção")
         return self
 
     @property

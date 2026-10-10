@@ -39,6 +39,7 @@ services:
       IP_HASH_SALT: ${IP_HASH_SALT:?defina IP_HASH_SALT no .env}
       REDIS_URL: redis://redis:6379/0
       GITHUB_USERNAME: ${GITHUB_USERNAME:-}
+      CTF_SECRET: ${CTF_SECRET:?defina CTF_SECRET no .env}
     depends_on:
       db:
         condition: service_healthy
@@ -55,6 +56,8 @@ services:
         NEXT_PUBLIC_API_URL: ${PUBLIC_API_URL:-http://localhost:8000}
     environment:
       API_URL: http://api:8000
+      # Mesmo segredo da API: o Next calcula a flag do desafio "source"
+      CTF_SECRET: ${CTF_SECRET:?defina CTF_SECRET no .env}
     depends_on:
       - api
     ports:

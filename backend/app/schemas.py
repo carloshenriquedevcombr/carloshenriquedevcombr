@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
@@ -90,3 +91,37 @@ class MetricsOut(BaseModel):
     projects_total: int
     contact_messages_total: int
     github: GitHubStatsOut | None
+
+
+class ChallengeOut(BaseModel):
+    id: str
+    title: str
+    category: str
+    points: int
+    hint: str
+
+
+class FlagSubmission(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace=True)
+
+    nickname: str = Field(pattern=r"^[A-Za-z0-9_-]{3,24}$")
+    flag: str = Field(min_length=1, max_length=100)
+
+
+class FlagResult(BaseModel):
+    correct: bool
+    challenge_id: str | None = None
+    points: int | None = None
+    already_solved: bool = False
+    message: str
+
+
+class HallOfFameEntry(BaseModel):
+    nickname: str
+    points: int
+    solved: list[str]
+    last_solve: datetime
+
+
+class InjectRequest(BaseModel):
+    scenario: Literal["traffic", "attack"]

@@ -64,6 +64,12 @@ cd frontend && npm run lint && npm run typecheck && npm run build
 | GET | `/metrics` | Snapshot das métricas (uptime, requisições, comandos, GitHub) |
 | WS | `/terminal/ws` | Terminal interativo (texto → JSON com linhas e eventos) |
 | WS | `/metrics/ws` | Métricas ao vivo, um snapshot a cada 3s |
+| GET | `/pipeline/stats` | Contadores, eventos e alertas recentes do Data Reactor |
+| POST | `/pipeline/inject` | Cenário sintético (`traffic` ou `attack`) pela pipeline real |
+| WS | `/pipeline/ws` | Cada evento e alerta da pipeline em tempo real |
+| GET | `/ctf/challenges` | Desafios do CTF (sem as flags) |
+| POST | `/ctf/submit` | Envio de flag (rate limit de 10 a cada 10 min) |
+| GET | `/ctf/hall-of-fame` | Ranking |
 
 ## Editando o conteúdo
 
@@ -113,8 +119,8 @@ Cuidados de performance e acessibilidade:
 - Nenhum comando chega a um shell: a entrada é quebrada com `shlex` e comparada com uma
   allowlist de funções Python. Metacaracteres (`;`, `$( )`, `|`) não têm efeito.
 - Proteção contra Cross-Site WebSocket Hijacking: origens fora de `CORS_ORIGINS` são recusadas.
-- Limites: 512 caracteres por comando, 15 comandos a cada 10s por conexão, 3 conexões
-  simultâneas por IP e timeout de 5 min sem atividade.
+- Limites: 512 caracteres por comando, 15 comandos a cada 10s por conexão, 10 WebSockets
+  simultâneos por IP (cada página abre 3) e timeout de 5 min sem atividade.
 - Comandos como `nmap lab.local` e `mode red|blue|purple` emitem eventos que animam o rack 3D.
 - Para adicionar um comando: uma função com `@command("nome", "descrição")`.
 
@@ -124,6 +130,38 @@ por uma tarefa de fundo a cada 15 min, sem token: a API pública dá 60 req/h po
 
 Sem `REDIS_URL`, rate limit e métricas ficam em memória (bom para desenvolvimento).
 
+## Data Reactor e mini-CTF (Fase 4)
+
+**Data Reactor** (`backend/app/pipeline/`): toda requisição HTTP da API (via
+`TelemetryMiddleware`), todo comando do terminal e todo envio de contato ou flag vira um
+`LabEvent`. Ele passa por Extract → Transform → Load, e no Transform o motor de detecção
+(`detection.py`) aplica regras no estilo Sigma, mapeadas no MITRE ATT&CK:
+
+| Regra | Detecta | ATT&CK |
+|---|---|---|
+| LAB-001 | Injeção de comando no terminal (`;`, `|`, `$( )`, `bash`...) | T1059 |
+| LAB-002 | Path traversal / leitura de `/etc/passwd` | T1083 |
+| LAB-003 | `nmap` fora do escopo autorizado | T1046 |
+| LAB-004 | `sudo` (exceto o easter egg) | T1548 |
+| LAB-005 | 5+ respostas 404 do mesmo ator em 60s | T1595.003 |
+| LAB-006 | 5+ flags erradas do mesmo ator em 60s | T1110 |
+| LAB-007 | Bot capturado pelo honeypot do contato | — |
+| LAB-008 | Rate limit excedido | T1499 |
+
+Privacidade: o ator é o hash do IP e nunca sai do servidor. O texto digitado no terminal
+também não: os clientes só veem o nome do comando. Rotas aparecem pelo template
+(`/projects/{slug}`) e caminhos inexistentes como `<404>`, para não repassar a todos os
+visitantes um texto arbitrário enviado por alguém. Os botões "gerar tráfego" e "inject
+anomaly" disparam eventos marcados como **sintéticos**, que passam pelas mesmas regras.
+
+**Mini-CTF** (`backend/app/ctf.py`): três flags, cada uma um HMAC do `CTF_SECRET`, então
+não estão no repositório:
+
+1. **Recon:** header `X-Lab-Flag` em `/api/v1/health`
+2. **Web:** comentário base64 no HTML (calculado pelo Next.js em `ctf-beacon.tsx`, por
+   isso o `web` também recebe `CTF_SECRET`)
+3. **Linux:** `ls -a` e `cat .secret` no terminal, depois `base64 -d`
+
 ## Roadmap
 
 | Fase | Entrega | Status |
@@ -131,5 +169,5 @@ Sem `REDIS_URL`, rate limit e métricas ficam em memória (bom para desenvolvime
 | 1 · MVP | API + banco + site 2D, CV e projetos documentados | ✅ |
 | 2 · Primeira cena 3D | Workbench (React Three Fiber) no hero + Boot Sequence | ✅ |
 | 3 · Interatividade | Terminal via WebSocket, Live Metrics, rate limit em Redis | ✅ |
-| 4 · Data Reactor | Pipeline de partículas com dados reais + mini-CTF | ⏳ |
+| 4 · Data Reactor | Pipeline de partículas com dados reais + mini-CTF | ✅ |
 | 5 · Hardening | CSP com nonce, página `/security`, Trivy, fallback 2D refinado | ⏳ |

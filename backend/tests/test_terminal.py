@@ -1,5 +1,9 @@
+from contextlib import ExitStack
+
 import pytest
 from starlette.websockets import WebSocketDisconnect
+
+from app.core.config import get_settings
 
 WS = "/api/v1/terminal/ws"
 
@@ -116,13 +120,10 @@ def test_allowed_origin_is_accepted(client):
 
 
 def test_connection_limit_per_ip(client):
-    with (
-        client.websocket_connect(WS) as a,
-        client.websocket_connect(WS) as b,
-        client.websocket_connect(WS) as c,
-    ):
-        for ws in (a, b, c):
-            ws.receive_json()
-        with pytest.raises(WebSocketDisconnect) as exc, client.websocket_connect(WS) as d:
-            d.receive_json()
+    limit = get_settings().ws_max_connections_per_ip
+    with ExitStack() as stack:
+        for _ in range(limit):
+            stack.enter_context(client.websocket_connect(WS)).receive_json()
+        with pytest.raises(WebSocketDisconnect) as exc, client.websocket_connect(WS) as extra:
+            extra.receive_json()
         assert exc.value.code == 1008

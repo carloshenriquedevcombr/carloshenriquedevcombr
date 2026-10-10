@@ -118,3 +118,55 @@ export const STATUS_LABEL: Record<string, string> = {
   done: "concluído",
   in_progress: "em andamento",
 };
+
+// ---- Data Reactor (pipeline) ----
+
+export type PipelineSource = "http" | "terminal" | "contact" | "ctf";
+
+export interface PipelineEvent {
+  id: number;
+  ts: number;
+  source: PipelineSource;
+  kind: string;
+  status: number | null;
+  latency_ms: number | null;
+  malicious: boolean;
+  synthetic: boolean;
+}
+
+export interface PipelineAlert {
+  id: number;
+  ts: number;
+  rule: string;
+  title: string;
+  severity: "low" | "medium" | "high";
+  technique: string | null;
+  synthetic: boolean;
+}
+
+export interface PipelineStats {
+  extracted: number;
+  transformed: number;
+  loaded: number;
+  blocked: number;
+  alerts: number;
+}
+
+// ---- CTF ----
+
+export interface Challenge {
+  id: string;
+  title: string;
+  category: string;
+  points: number;
+  hint: string;
+}
+
+export interface HallOfFameEntry {
+  nickname: string;
+  points: number;
+  solved: string[];
+  last_solve: string;
+}
+
+export const getChallenges = cache(() => apiGet<Challenge[]>("/ctf/challenges"));

@@ -1,7 +1,7 @@
 from datetime import UTC, datetime
 from enum import StrEnum
 
-from sqlalchemy import JSON, Column
+from sqlalchemy import JSON, Column, UniqueConstraint
 from sqlmodel import Field, SQLModel
 
 
@@ -83,3 +83,12 @@ class ContactMessage(SQLModel, table=True):
     message: str = Field(max_length=4000)
     ip_hash: str = Field(max_length=64, index=True)
     created_at: datetime = Field(default_factory=utcnow)
+
+
+class CtfSolve(SQLModel, table=True):
+    __table_args__ = (UniqueConstraint("nickname", "challenge_id"),)
+
+    id: int | None = Field(default=None, primary_key=True)
+    nickname: str = Field(max_length=24, index=True)
+    challenge_id: str = Field(max_length=20)
+    solved_at: datetime = Field(default_factory=utcnow)

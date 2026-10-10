@@ -5,7 +5,7 @@ from collections import defaultdict
 from typing import Protocol
 
 import redis.asyncio as aioredis
-from starlette.types import ASGIApp, Receive, Scope, Send
+from starlette.types import ASGIApp, Message, Receive, Scope, Send
 
 from app.core.redis import get_async_redis
 
@@ -64,19 +64,66 @@ def build_metrics_store() -> MetricsStore:
 metrics = build_metrics_store()
 
 
-class RequestCounterMiddleware:
-    """Conta as requisições HTTP servidas pela API (ASGI puro, não toca no corpo)."""
+class TelemetryMiddleware:
+    """Conta as requisições da API e envia cada uma para a pipeline do Data Reactor.
+
+    ASGI puro: não toca no corpo da resposta, só observa status e latência.
+    """
 
     def __init__(self, app: ASGIApp, prefix: str = "/api/") -> None:
         self.app = app
         self.prefix = prefix
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
-        if scope["type"] == "http" and scope["path"].startswith(self.prefix):
+        if scope["type"] != "http" or not scope["path"].startswith(self.prefix):
+            await self.app(scope, receive, send)
+            return
+
+        status_code = 500
+        started = time.perf_counter()
+
+        async def send_wrapper(message: Message) -> None:
+            nonlocal status_code
+            if message["type"] == "http.response.start":
+                status_code = message["status"]
+            await send(message)
+
+        try:
+            await self.app(scope, receive, send_wrapper)
+        finally:
             # Métrica nunca derruba uma requisição (ex.: Redis fora do ar)
             with contextlib.suppress(Exception):
                 await metrics.incr("requests_total")
-        await self.app(scope, receive, send)
+                _emit_http_event(scope, status_code, (time.perf_counter() - started) * 1000)
+
+
+def _emit_http_event(scope: Scope, status_code: int, latency_ms: float) -> None:
+    from app.core.config import get_settings
+    from app.core.security import hash_ip
+    from app.pipeline.bus import bus
+    from app.pipeline.events import LabEvent
+
+    route = scope.get("route")
+    # Só o template da rota (ex.: /projects/{slug}) é exibido; caminhos inexistentes
+    # viram <404> para não repassar a todos os visitantes um texto enviado por alguém.
+    if getattr(route, "path", None):
+        path = f"/api/v1{route.path}"
+    elif scope["method"] == "OPTIONS":
+        path = "(preflight CORS)"  # respondido pelo CORSMiddleware, sem rota
+    else:
+        path = "<404>"
+    client = scope.get("client")
+    actor = hash_ip(client[0] if client else "unknown", get_settings().ip_hash_salt)
+    bus.submit(
+        LabEvent(
+            source="http",
+            kind=f"{scope['method']} {path}",
+            actor=actor,
+            status=status_code,
+            latency_ms=round(latency_ms, 1),
+            detail=scope["path"],
+        )
+    )
 
 
 def uptime_seconds() -> int:

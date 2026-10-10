@@ -3,9 +3,10 @@
 import { Edges, OrbitControls, PerformanceMonitor } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Bloom, ChromaticAberration, EffectComposer } from "@react-three/postprocessing";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import { MODE_COLOR, type LabMode } from "../terminal/types";
+import { CanvasLabel } from "../three/canvas-label";
 
 // Mesmos hosts do comando nmap (backend/app/terminal/commands.py)
 export const RACK_UNITS = [
@@ -197,7 +198,7 @@ function ServerUnit({
         <meshBasicMaterial color={highlight ?? "#1a222b"} toneMapped={false} />
       </mesh>
       {/* Etiqueta impressa no painel frontal */}
-      <PanelLabel
+      <CanvasLabel
         position={[-0.2, 0, 0.552]}
         title={label}
         subtitle={scanned ? `${ip} · ${filtered ? "filtered" : "open"}` : ""}
@@ -220,52 +221,4 @@ function Shield({ color, reducedMotion }: { color: string; reducedMotion: boolea
       <Edges color={color} />
     </mesh>
   );
-}
-
-/** Texto desenhado num canvas e aplicado como textura: fica dentro do WebGL, sem DOM. */
-function PanelLabel({
-  position,
-  title,
-  subtitle,
-  color,
-}: {
-  position: [number, number, number];
-  title: string;
-  subtitle: string;
-  color: string;
-}) {
-  // Recriada só quando o texto ou a cor mudam (scan, troca de modo)
-  const texture = useMemo(() => drawLabel(title, subtitle, color), [title, subtitle, color]);
-  useEffect(() => () => texture.dispose(), [texture]);
-
-  return (
-    <mesh position={position}>
-      <planeGeometry args={[0.8, 0.2]} />
-      <meshBasicMaterial map={texture} transparent toneMapped={false} />
-    </mesh>
-  );
-}
-
-function drawLabel(title: string, subtitle: string, color: string): THREE.CanvasTexture {
-  const W = 512;
-  const H = 128;
-  const canvas = document.createElement("canvas");
-  canvas.width = W;
-  canvas.height = H;
-  const ctx = canvas.getContext("2d");
-  if (ctx) {
-    ctx.fillStyle = color;
-    ctx.textBaseline = "middle";
-    ctx.font = "600 40px ui-monospace, SFMono-Regular, Menlo, monospace";
-    ctx.fillText(title, 8, subtitle ? 38 : 64);
-    if (subtitle) {
-      ctx.globalAlpha = 0.8;
-      ctx.font = "34px ui-monospace, SFMono-Regular, Menlo, monospace";
-      ctx.fillText(subtitle, 8, 92);
-    }
-  }
-  const texture = new THREE.CanvasTexture(canvas);
-  texture.colorSpace = THREE.SRGBColorSpace;
-  texture.anisotropy = 4;
-  return texture;
 }

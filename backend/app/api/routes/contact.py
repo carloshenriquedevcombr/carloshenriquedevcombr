@@ -9,6 +9,8 @@ from app.core.redis import get_sync_redis
 from app.core.security import client_ip, hash_ip
 from app.db import get_session
 from app.models import ContactMessage
+from app.pipeline.bus import bus
+from app.pipeline.events import LabEvent
 from app.schemas import ContactAck, ContactIn
 
 logger = logging.getLogger("lab.contact")
@@ -37,6 +39,7 @@ def send_message(
     # Honeypot preenchido: responde igual a um envio válido para não dar pista ao bot.
     if payload.website:
         logger.info("honeypot acionado", extra={"ip_hash": ip_hash})
+        bus.submit(LabEvent("contact", "contact:honeypot", ip_hash))
         return ContactAck()
 
     session.add(
@@ -48,4 +51,5 @@ def send_message(
         )
     )
     session.commit()
+    bus.submit(LabEvent("contact", "contact:message", ip_hash))
     return ContactAck()
