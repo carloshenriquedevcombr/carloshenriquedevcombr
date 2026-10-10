@@ -87,12 +87,28 @@ alembic revision --autogenerate -m "descrição"
 - Contêineres rodando como usuário não-root
 - CI com Ruff, Bandit (SAST) e gitleaks (vazamento de segredos)
 
+## Cena 3D — Workbench (Fase 2)
+
+Placa IoT modelada em código com React Three Fiber (sem arquivos `.glb`), em
+`frontend/src/components/workbench/`:
+
+- `parts.ts` — componentes clicáveis (MCU, Flash SPI, UART, USB, antena) e seus textos
+- `scene.tsx` — a cena: vista explodida animada, pulsos de dados nas trilhas, LEDs, bloom
+- `workbench.tsx` — UI ao redor da cena (montar/desmontar, card de informação, botões acessíveis)
+
+Cuidados de performance e acessibilidade:
+
+- three.js fica num chunk separado, carregado só no navegador e só em telas `md+`
+- renderização pausada quando a bancada sai da tela; resolução e bloom caem se o FPS cair
+- `prefers-reduced-motion` desliga rotação automática, pulsos e animações
+- sem WebGL, aparece a versão 2D; todos os componentes também são acessíveis por botões
+
 ## Roadmap
 
 | Fase | Entrega | Status |
 |---|---|---|
 | 1 · MVP | API + banco + site 2D, CV e projetos documentados | ✅ |
-| 2 · Primeira cena 3D | Workbench (React Three Fiber) no hero + Boot Sequence | ⏳ |
+| 2 · Primeira cena 3D | Workbench (React Three Fiber) no hero + Boot Sequence | ✅ |
 | 3 · Interatividade | Terminal via WebSocket, Live Metrics, rate limit em Redis | ⏳ |
 | 4 · Data Reactor | Pipeline de partículas com dados reais + mini-CTF | ⏳ |
 | 5 · Hardening | CSP com nonce, página `/security`, Trivy, fallback 2D refinado | ⏳ |
