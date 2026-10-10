@@ -1,0 +1,128 @@
+{
+  "_comment": "Conteúdo inicial do portfólio. Edite livremente e rode `python -m app.seed` de novo: o seed faz upsert por slug/versão/nome.",
+  "timeline": [
+    {
+      "version": "v1.0",
+      "title": "Suporte de TI — a linha de frente",
+      "period": "Origem",
+      "description": "Atendimento a usuários, diagnóstico e resolução de problemas técnicos. Foi aqui que aprendi a investigar a causa raiz e a fazer o ambiente voltar a funcionar.",
+      "highlights": [
+        "Diagnóstico de incidentes de hardware, software e rede",
+        "Administração de ambientes Linux",
+        "Percebi que muitos chamados eram repetitivos — e repetição é sinal de automação"
+      ]
+    },
+    {
+      "version": "v1.5",
+      "title": "Automação e infraestrutura",
+      "period": "Transição",
+      "description": "Comecei a escrever scripts para eliminar tarefas manuais e a montar meu próprio laboratório: VPS, Docker, proxy reverso e integração de sistemas.",
+      "highlights": [
+        "Servidores Linux (VPS Ubuntu) configurados do zero",
+        "Deploy de serviços com Docker e reverse proxy",
+        "Liderança de equipe: treinamento, indicadores e gestão de demandas"
+      ]
+    },
+    {
+      "version": "v2.0",
+      "title": "Desenvolvimento backend, dados e segurança",
+      "period": "Agora",
+      "description": "Construo sistemas que resolvem a origem dos chamados em vez de atendê-los um a um: APIs em Python, bancos PostgreSQL e uma visão de segurança desde o design.",
+      "highlights": [
+        "APIs REST com Python (FastAPI) e PostgreSQL",
+        "Pipelines e automação de dados",
+        "Cibersegurança: Blue, Red e Purple Team, Hardware Hacking"
+      ]
+    }
+  ],
+  "skills": [
+    {"name": "Python", "group": "backend_automation", "evidence": "Linguagem principal: APIs, scripts de automação e esta própria API"},
+    {"name": "FastAPI", "group": "backend_automation", "evidence": "Backend deste portfólio — veja /docs"},
+    {"name": "APIs REST", "group": "backend_automation", "evidence": "CRUDs e sistemas comerciais"},
+    {"name": "Bash", "group": "backend_automation", "evidence": "Automação de rotinas em servidores Linux"},
+    {"name": "PostgreSQL / SQL", "group": "data_engineering", "evidence": "Modelagem e integração de bancos em projetos próprios"},
+    {"name": "Modelagem de dados", "group": "data_engineering", "evidence": "Schema versionado com Alembic neste projeto"},
+    {"name": "Pipelines de dados", "group": "data_engineering", "evidence": "Em evolução: ETL de logs e métricas (próximas fases do Lab)"},
+    {"name": "Hardening de aplicações", "group": "cybersecurity", "evidence": "CSP, rate limit, honeypot e SAST no CI deste portfólio"},
+    {"name": "Blue / Red / Purple Team", "group": "cybersecurity", "evidence": "Estudos e laboratório próprio de ataque e detecção"},
+    {"name": "Linux", "group": "infrastructure", "evidence": "Administração de VPS Ubuntu em produção"},
+    {"name": "Docker", "group": "infrastructure", "evidence": "Deploy de serviços e o docker-compose deste projeto"},
+    {"name": "Redes e reverse proxy", "group": "infrastructure", "evidence": "Exposição segura de serviços na VPS"},
+    {"name": "ESP32 / Arduino", "group": "hardware", "evidence": "Leitura de sensores e controle de relés/motores"},
+    {"name": "Hardware Hacking", "group": "hardware", "evidence": "Interfaces UART/SPI e análise de dispositivos IoT"}
+  ],
+  "projects": [
+    {
+      "slug": "the-lab-portfolio",
+      "title": "The Lab — este portfólio",
+      "summary": "Portfólio full-stack com API pública em FastAPI, frontend Next.js e pipeline de CI com análise de segurança.",
+      "category": "backend",
+      "tags": ["fastapi", "nextjs", "security", "ci"],
+      "stack": ["Python", "FastAPI", "SQLModel", "PostgreSQL", "Next.js", "TypeScript", "Docker", "GitHub Actions"],
+      "problem": "Um portfólio estático não prova competência de backend. Eu queria que o próprio site fosse a evidência: uma API real, documentada e endurecida.",
+      "threat_model": "Superfície pública: formulário de contato (spam, abuso, injeção) e endpoints de leitura (enumeração, scraping). Mitigações: validação estrita com Pydantic, rate limit por IP (hash com sal, nunca em texto puro), honeypot anti-bot, CORS restrito e headers de segurança.",
+      "architecture": "Monorepo com backend FastAPI + SQLModel sobre PostgreSQL (migrations com Alembic) e frontend Next.js (App Router) que consome a API no servidor. Tudo orquestrado com Docker Compose.",
+      "implementation": "Endpoints versionados em /api/v1, schemas de saída separados dos modelos de banco para não vazar campos internos, middleware de headers de segurança e testes automatizados com pytest. O CI roda ruff, pytest, Bandit (SAST) e gitleaks a cada push.",
+      "impact": "Serve como prova técnica verificável: qualquer recrutador pode abrir /docs e chamar a API.",
+      "lessons": "Separar schemas de entrada/saída dos modelos de banco simplifica a evolução da API e evita exposição acidental de dados.",
+      "repo_url": "https://github.com/carloshenriquedevcombr/carloshenriquedevcombr",
+      "demo_url": null,
+      "featured": true,
+      "status": "in_progress"
+    },
+    {
+      "slug": "vps-docker-reverse-proxy",
+      "title": "Infraestrutura em VPS com Docker e reverse proxy",
+      "summary": "Servidor Ubuntu configurado do zero para hospedar múltiplos serviços em contêineres atrás de um proxy reverso.",
+      "category": "infra",
+      "tags": ["linux", "docker", "reverse-proxy", "hardening"],
+      "stack": ["Ubuntu", "Docker", "Docker Compose", "Nginx", "Bash"],
+      "problem": "Precisava hospedar vários serviços pessoais de forma isolada, segura e fácil de manter, sem depender de plataformas gerenciadas.",
+      "threat_model": "Servidor exposto à internet: ataques de força bruta em SSH, portas desnecessárias abertas e serviços desatualizados.",
+      "architecture": "VPS Ubuntu com cada serviço em seu próprio contêiner, uma única porta pública atendida pelo proxy reverso e tráfego roteado por domínio.",
+      "implementation": "Configuração do servidor, firewall, acesso SSH por chave, Docker Compose por serviço e scripts Bash para rotinas de manutenção.",
+      "impact": "Ambiente reproduzível onde subir um novo serviço é questão de adicionar um compose e uma rota no proxy.",
+      "lessons": "Infraestrutura documentada como código economiza horas quando algo quebra às 2h da manhã.",
+      "repo_url": null,
+      "demo_url": null,
+      "featured": true,
+      "status": "done"
+    },
+    {
+      "slug": "esp32-telemetria",
+      "title": "Telemetria ESP32 → servidor",
+      "summary": "Microcontrolador ESP32 lendo sensores e enviando dados para uma API, com controle remoto de relés.",
+      "category": "hardware",
+      "tags": ["esp32", "iot", "sensores", "api"],
+      "stack": ["ESP32", "C++ (Arduino)", "Python", "API REST"],
+      "problem": "Integrar o mundo físico (sensores, relés, motores) a um backend, coletando dados de forma contínua e confiável.",
+      "threat_model": "Dispositivos IoT costumam trafegar dados sem autenticação e expor interfaces de debug (UART). O projeto considera autenticação do dispositivo e o que um atacante com acesso físico conseguiria extrair.",
+      "architecture": "ESP32 coleta leituras dos sensores e envia via HTTP para uma API em Python, que persiste os dados e devolve comandos para os atuadores.",
+      "implementation": "Firmware em C++ (Arduino framework) para leitura e envio periódico; endpoint em Python para receber, validar e armazenar as leituras.",
+      "impact": "Base prática para os próximos experimentos de Hardware Hacking e para o pipeline de dados do Lab.",
+      "lessons": "No embarcado, falha de rede é regra, não exceção: é preciso bufferizar e reenviar.",
+      "repo_url": null,
+      "demo_url": null,
+      "featured": false,
+      "status": "in_progress"
+    },
+    {
+      "slug": "api-sistema-comercial",
+      "title": "API de sistema comercial (CRUD)",
+      "summary": "API REST para cadastro de clientes, produtos e pedidos com banco PostgreSQL modelado do zero.",
+      "category": "backend",
+      "tags": ["api", "crud", "postgresql"],
+      "stack": ["Python", "FastAPI", "PostgreSQL", "SQL"],
+      "problem": "Rotinas comerciais controladas em planilhas geravam retrabalho e inconsistência de dados.",
+      "threat_model": null,
+      "architecture": "API REST em camadas (rotas, serviços, acesso a dados) sobre PostgreSQL com chaves e restrições garantindo integridade.",
+      "implementation": "Modelagem relacional, endpoints CRUD com validação de entrada e consultas SQL para relatórios.",
+      "impact": "Centraliza os dados em um único ponto confiável e abre caminho para automações sobre eles.",
+      "lessons": "Restrições no banco são a última linha de defesa da integridade dos dados — não dependa só da aplicação.",
+      "repo_url": null,
+      "demo_url": null,
+      "featured": false,
+      "status": "done"
+    }
+  ]
+}
